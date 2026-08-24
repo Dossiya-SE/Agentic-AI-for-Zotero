@@ -1,0 +1,37 @@
+{
+  "repository": "Dossiya-SE/Agentic-AI-for-Zotero",
+  "skill_id": "agentic-ai-for-zotero",
+  "version": "1.0.0",
+  "status": "GITHUB_REPOSITORY_DISTRIBUTION",
+  "source_archive": {
+    "name": "AGENTIC_AI_FOR_ZOTERO_SKILL_V1.zip",
+    "sha256": "91e057125326c63fcdae7e16161f839d87188cbe223741cf88ce55dfca46ad77"
+  },
+  "source_skill": {
+    "name": "SKILL.md",
+    "archived_source_sha256": "fd90bbeb065bf3c71c1a92e806ecd56aff273726bf0fbafbf6042228030b3446",
+    "note": "The GitHub SKILL.md is a repository-oriented distribution of the same governing architecture; the archived source package remains the byte-level provenance authority for the original V1 package."
+  },
+  "files": [
+    "README.md",
+    "SKILL.md",
+    "ERROR_FAIL_WIN_TAXONOMY.json",
+    "STATE_MACHINE.json",
+    "TEST_GATES.md",
+    "TEACHING_PLAYBOOK.md",
+    "NUS_FROZEN37_CASEBOOK.md",
+    "PROMPT_LIBRARY.md",
+    "QUICK_REFERENCE.md",
+    "MANIFEST.json"
+  ],
+  "principles": [
+    "fail_closed",
+    "scientific_authority_separate_from_mutation",
+    "minimize_live_executions_not_checks",
+    "hash_bound_provenance",
+    "independent_auditing",
+    "transaction_rollback",
+    "single_use_authorization",
+    "postwrite_idempotency"
+  ]
+}
