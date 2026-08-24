@@ -1,0 +1,199 @@
+{
+  "skill_id": "agentic-ai-for-zotero",
+  "version": "1.0.0",
+  "failure_classes": [
+    {
+      "id": "F01",
+      "name": "SYNTAX_RUNTIME_LANGUAGE",
+      "mutation_policy": "NO_MUTATION",
+      "recognizers": [
+        "SyntaxError",
+        "unexpected token",
+        "unsupported syntax"
+      ],
+      "repair": "Static syntax validation; versioned repair; fresh required run."
+    },
+    {
+      "id": "F02",
+      "name": "AUTHORITY_DRIFT",
+      "mutation_policy": "ABORT_BEFORE_MUTATION",
+      "recognizers": [
+        "DOI_DRIFT",
+        "TITLE_DRIFT",
+        "PDF_SHA_DRIFT",
+        "KEYSET_DRIFT",
+        "FINGERPRINT_DRIFT"
+      ],
+      "repair": "Investigate live/source state; never patch expected authority."
+    },
+    {
+      "id": "F03",
+      "name": "READER_UI_DEPENDENCY",
+      "mutation_policy": "NO_MUTATION",
+      "recognizers": [
+        "tab is undefined",
+        "Reader document authority unavailable"
+      ],
+      "repair": "Remove UI-tab dependence from source authority."
+    },
+    {
+      "id": "F04",
+      "name": "PRIVILEGE_COMPARTMENT_XRAY",
+      "mutation_policy": "NO_MUTATION",
+      "recognizers": [
+        "Permission denied to access property",
+        "Xray"
+      ],
+      "repair": "Serialize across compartments; parse on destination side."
+    },
+    {
+      "id": "F05",
+      "name": "CANONICALIZATION_FLOAT_HASH",
+      "mutation_policy": "NO_MUTATION",
+      "recognizers": [
+        "geometry SHA mismatch",
+        "raw float vs rounded"
+      ],
+      "repair": "Freeze canonicalization; never patch expected hashes."
+    },
+    {
+      "id": "F06",
+      "name": "OVERSPECIFIED_RUNTIME_INVARIANT",
+      "mutation_policy": "NO_MUTATION",
+      "recognizers": [
+        "runtime segmentation differs",
+        "line-group hash drift"
+      ],
+      "repair": "Demote volatile runtime representation to diagnostic; retain stable source invariants."
+    },
+    {
+      "id": "F07",
+      "name": "SCIENTIFIC_OVERREACH",
+      "mutation_policy": "NO_AFFECTED_TARGET_MUTATION",
+      "recognizers": [
+        "unsupported coupling",
+        "external claim treated focal",
+        "co-occurrence converted to link"
+      ],
+      "repair": "ABSTAIN, split, or exclude."
+    },
+    {
+      "id": "F08",
+      "name": "ATOMICITY_FAILURE",
+      "mutation_policy": "REQUIRES_SCHEMA_CHANGE",
+      "recognizers": [
+        "one highlight contains distinct roles"
+      ],
+      "repair": "Split into atomic children; reapprove schema."
+    },
+    {
+      "id": "F09",
+      "name": "VISIBLE_DUPLICATE_DUAL_ROLE",
+      "mutation_policy": "SCHEMA_ADJUDICATION",
+      "recognizers": [
+        "same text page geometry multiple roles"
+      ],
+      "repair": "One visible annotation; preserve secondary semantics externally."
+    },
+    {
+      "id": "F10",
+      "name": "TRANSACTION_ACTION_MISCLASSIFICATION",
+      "mutation_policy": "BLOCK_MUTATION",
+      "recognizers": [
+        "KEEP target differs",
+        "metadata-only update has geometry diff"
+      ],
+      "repair": "Correct action classification; prove target fingerprints unchanged; reapprove."
+    },
+    {
+      "id": "F11",
+      "name": "PARTIAL_TRANSACTION_RISK",
+      "mutation_policy": "TRANSACTION_REDESIGN",
+      "recognizers": [
+        "delete before replacement create"
+      ],
+      "repair": "CREATE→UPDATE→DELETE→VALIDATE."
+    },
+    {
+      "id": "F12",
+      "name": "SYNC_RACE",
+      "mutation_policy": "ABORT_OR_ROLLBACK",
+      "recognizers": [
+        "sync active during transaction"
+      ],
+      "repair": "No-sync lock; second prewrite; fail closed."
+    },
+    {
+      "id": "F13",
+      "name": "FOREIGN_MUTATION",
+      "mutation_policy": "ROLLBACK",
+      "recognizers": [
+        "unexpected annotation appears mid-transaction"
+      ],
+      "repair": "Rollback transaction-owned state and restore baseline."
+    },
+    {
+      "id": "F14",
+      "name": "ROLLBACK_INCOMPLETE",
+      "mutation_policy": "CRITICAL_STOP",
+      "recognizers": [
+        "CRITICAL_PARTIAL_STATE",
+        "ROLLBACK_INCOMPLETE"
+      ],
+      "repair": "Dedicated recovery controller; no writer rerun."
+    },
+    {
+      "id": "F15",
+      "name": "PACKAGE_PROVENANCE_FAILURE",
+      "mutation_policy": "STAGE_NOT_CLOSED",
+      "recognizers": [
+        "manifest mismatch",
+        "runtime hash differs from uploaded bytes"
+      ],
+      "repair": "Audit actual package; rerun only if artifact integrity cannot be proven."
+    }
+  ],
+  "win_classes": [
+    {
+      "id": "W01",
+      "name": "SOURCE_PASS"
+    },
+    {
+      "id": "W02",
+      "name": "SCIENTIFIC_PASS"
+    },
+    {
+      "id": "W03",
+      "name": "GEOMETRY_PASS"
+    },
+    {
+      "id": "W04",
+      "name": "SCHEMA_PASS"
+    },
+    {
+      "id": "W05",
+      "name": "DRYRUN_PASS"
+    },
+    {
+      "id": "W06",
+      "name": "PREMUTATION_PASS"
+    },
+    {
+      "id": "W07",
+      "name": "TRANSACTION_PASS"
+    },
+    {
+      "id": "W08",
+      "name": "POSTWRITE_PASS"
+    },
+    {
+      "id": "W09",
+      "name": "IDEMPOTENCY_PASS",
+      "criterion": "NOOP=N; CREATE=UPDATE=REPLACE=DELETE=0"
+    },
+    {
+      "id": "W10",
+      "name": "PACKAGE_CERTIFIED_PASS"
+    }
+  ]
+}
