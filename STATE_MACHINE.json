@@ -1,0 +1,49 @@
+{
+  "name": "Agentic AI for Zotero Governance State Machine",
+  "version": "1.0.0",
+  "states": [
+    "SOURCE_UNFROZEN",
+    "SOURCE_FROZEN",
+    "SCIENCE_ADJUDICATED",
+    "SCIENCE_HUMAN_APPROVED",
+    "GEOMETRY_FROZEN",
+    "FINAL_TARGET_SET_FROZEN",
+    "SCHEMA_FROZEN",
+    "SCHEMA_HUMAN_APPROVED",
+    "DRYRUN_CERTIFIED",
+    "PREMUTATION_CERTIFIED",
+    "MUTATION_AUTHORIZED_SINGLE_USE",
+    "TRANSACTION_IN_PROGRESS",
+    "TRANSACTION_COMMITTED_PENDING_AUDIT",
+    "TRANSACTION_ROLLED_BACK_AUTH_CONSUMED",
+    "CRITICAL_PARTIAL_STATE",
+    "POSTWRITE_CERTIFIED",
+    "IDEMPOTENT",
+    "FINAL_RELEASE_FROZEN"
+  ],
+  "transitions": [
+    {"from":"SOURCE_UNFROZEN","to":"SOURCE_FROZEN","requires":["identity","attachment","PDF SHA","page labels"]},
+    {"from":"SOURCE_FROZEN","to":"SCIENCE_ADJUDICATED","requires":["evidence adjudication"]},
+    {"from":"SCIENCE_ADJUDICATED","to":"SCIENCE_HUMAN_APPROVED","requires":["explicit scientific approval"]},
+    {"from":"SCIENCE_HUMAN_APPROVED","to":"GEOMETRY_FROZEN","requires":["exact text/region geometry","visual QA"]},
+    {"from":"GEOMETRY_FROZEN","to":"FINAL_TARGET_SET_FROZEN","requires":["redundancy adjudication"]},
+    {"from":"FINAL_TARGET_SET_FROZEN","to":"SCHEMA_FROZEN","requires":["target fingerprints","transaction action plan"]},
+    {"from":"SCHEMA_FROZEN","to":"SCHEMA_HUMAN_APPROVED","requires":["schema hash-bound approval"]},
+    {"from":"SCHEMA_HUMAN_APPROVED","to":"DRYRUN_CERTIFIED","requires":["writer dry-run","independent auditor dry-run"]},
+    {"from":"DRYRUN_CERTIFIED","to":"PREMUTATION_CERTIFIED","requires":["full authority chain pass"]},
+    {"from":"PREMUTATION_CERTIFIED","to":"MUTATION_AUTHORIZED_SINGLE_USE","requires":["explicit hash-bound mutation authorization"]},
+    {"from":"MUTATION_AUTHORIZED_SINGLE_USE","to":"TRANSACTION_IN_PROGRESS","requires":["fresh prewrite","sync lock","second prewrite","rollback snapshot","precommit keys","authorization consumption"]},
+    {"from":"TRANSACTION_IN_PROGRESS","to":"TRANSACTION_COMMITTED_PENDING_AUDIT","requires":["exact transaction success"]},
+    {"from":"TRANSACTION_IN_PROGRESS","to":"TRANSACTION_ROLLED_BACK_AUTH_CONSUMED","requires":["successful rollback"]},
+    {"from":"TRANSACTION_IN_PROGRESS","to":"CRITICAL_PARTIAL_STATE","requires":["rollback incomplete"]},
+    {"from":"TRANSACTION_COMMITTED_PENDING_AUDIT","to":"POSTWRITE_CERTIFIED","requires":["independent read-only audit"]},
+    {"from":"POSTWRITE_CERTIFIED","to":"IDEMPOTENT","requires":["NOOP=N","CREATE=UPDATE=REPLACE=DELETE=0"]},
+    {"from":"IDEMPOTENT","to":"FINAL_RELEASE_FROZEN","requires":["final package audit","release manifest"]}
+  ],
+  "forbidden_shortcuts": [
+    "SCIENTIFIC_APPROVAL -> MUTATION",
+    "SCHEMA_APPROVAL -> MUTATION without dry-run/certification",
+    "RUNTIME_PASS -> FINAL_RELEASE without package audit",
+    "ROLLBACK_SUCCESS -> RERUN same single-use authorization"
+  ]
+}
