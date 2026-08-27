@@ -1,8 +1,8 @@
 {
   "repository": "Dossiya-SE/Agentic-AI-for-Zotero",
   "skill_id": "agentic-ai-for-zotero",
-  "version": "1.0.0",
-  "status": "GITHUB_REPOSITORY_DISTRIBUTION",
+  "version": "1.1.0",
+  "status": "GITHUB_REPOSITORY_DISTRIBUTION_WITH_MANDATORY_WEAKNESS_GOVERNANCE",
   "source_archive": {
     "name": "AGENTIC_AI_FOR_ZOTERO_SKILL_V1.zip",
     "sha256": "91e057125326c63fcdae7e16161f839d87188cbe223741cf88ce55dfca46ad77"
@@ -10,11 +10,17 @@
   "source_skill": {
     "name": "SKILL.md",
     "archived_source_sha256": "fd90bbeb065bf3c71c1a92e806ecd56aff273726bf0fbafbf6042228030b3446",
-    "note": "The GitHub SKILL.md is a repository-oriented distribution of the same governing architecture; the archived source package remains the byte-level provenance authority for the original V1 package."
+    "note": "The archived V1 package remains byte-level provenance authority for the original skill. Version 1.1.0 adds mandatory repository governance for scientific canonicalization and weakness remediation before Zotero mutation."
   },
+  "mandatory_governance_extensions": [
+    "ZOTERO_AGENTIC_WEAKNESS_CORRECTIVE_ACTION_CONTRACT.md",
+    "WEAKNESS_REGISTER.json"
+  ],
   "files": [
     "README.md",
     "SKILL.md",
+    "ZOTERO_AGENTIC_WEAKNESS_CORRECTIVE_ACTION_CONTRACT.md",
+    "WEAKNESS_REGISTER.json",
     "ERROR_FAIL_WIN_TAXONOMY.json",
     "STATE_MACHINE.json",
     "TEST_GATES.md",
@@ -27,11 +33,24 @@
   "principles": [
     "fail_closed",
     "scientific_authority_separate_from_mutation",
+    "canonical_reconciliation_not_additive_merge",
+    "gold_ledger_context_conflict_separation",
+    "atomic_scientific_roles",
+    "deferred_role_promotion_after_downstream_proof",
+    "input_requires_focal_consumption",
+    "how_generated_traceability",
+    "author_conflicts_preserved_not_repaired",
+    "semantic_deduplication",
+    "permanent_evidence_identity",
+    "native_geometry_before_write",
+    "mixed_surface_atomicity",
+    "negative_regression_testing",
     "minimize_live_executions_not_checks",
     "hash_bound_provenance",
     "independent_auditing",
     "transaction_rollback",
     "single_use_authorization",
     "postwrite_idempotency"
-  ]
+  ],
+  "production_writer_rule": "DISABLED_UNTIL_ALL_TARGET_PAPERS_GOLD_FROZEN_GEOMETRY_FROZEN_QA_PASS"
 }
