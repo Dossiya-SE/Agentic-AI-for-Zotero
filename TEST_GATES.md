@@ -188,3 +188,36 @@ Any nonzero mutation on the second run is a failure.
 - immutable final release manifest;
 - final package SHA;
 - state marked mutation-closed unless a new governed change request is created.
+
+
+## T22 — Evidence-to-Decision Synthesis Audit
+
+This gate applies when canonical NUS evidence is transformed into synthesis workbooks, decision tables, or engineering-sustainability comparison artifacts.
+
+Authority:
+- \`NUS_E2D_AUDIT_METHOD_V1.md\`
+- \`NUS_E2D_AUDIT_SCHEMA_V1.json\`
+- \`NUS_E2D_REGRESSION_CASES_V1.json\`
+
+Require:
+- deep evidence layer and compact decision layer remain distinct;
+- every compact material claim traces to the deep layer and focal evidence;
+- engineering measurement is not promoted to sustainability input without explicit downstream consumption;
+- baseline, engineering acceptability gate, and optimization objective remain separate;
+- transformation contains source/input + implemented operator/model/equation + sustainability/economic/integrated output;
+- author equations and quantitative fact signatures are preserved exactly;
+- author conflicts are preserved and propagated when decision-relevant;
+- unsupported sustainability dimensions remain blank / \`NOT_REPORTED\`;
+- trade-off is evidence-backed and explains non-coincident objectives;
+- decision basis is a subset of audited evidence;
+- decision type matches the implemented method and scope;
+- engineering-only optimization MUST NOT be relabelled sustainability optimization;
+- authentic paper visuals originate from the focal PDF and are never replaced by reconstructions presented as source figures;
+- independent auditor reproduces gate, consumed engineering output, transformation, baseline, trade-off, decision, and decision type;
+- all permanent six-paper NUS-E2D regression cases pass.
+
+Allowed non-failure state:
+- \`PASS_WITH_PRESERVED_AUTHOR_CONFLICT\`
+
+Blocking state:
+- any NUS-E2D critical failure => synthesis artifact is not release-authoritative.

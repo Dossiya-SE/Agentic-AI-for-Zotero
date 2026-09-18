@@ -1,0 +1,41 @@
+{
+  "name": "NUS Evidence-to-Decision Audit Schema",
+  "id": "NUS-E2D-AUDIT",
+  "version": "1.0.0",
+  "status": "GOVERNED",
+  "reference_workbook": {
+    "name": "corrections(3).xlsx",
+    "sha256": "ea283312452fdb83ceeb379e1d9a47f39b7238e61f38f2e742f43c6a2144ab07",
+    "training_papers": ["NUS-15", "NUS-172", "NUS-18", "NUS-187", "NUS-48", "NUS-59"]
+  },
+  "authority_order": ["FOCAL_PDF", "CANONICAL_AUTHOR_EVIDENCE", "DEEP_VISUAL_RECORD", "COMPACT_NEW_SYNTHESIS"],
+  "statuses": ["PASS", "PASS_WITH_PRESERVED_AUTHOR_CONFLICT", "WARN_NONBLOCKING_STYLE", "ABSTAIN_SOURCE_INSUFFICIENT", "FAIL"],
+  "deep_sheet": {
+    "name": "visual",
+    "required_columns": ["Paper", "Purpose / intervention / sustainability inputs", "Engineering assessment and outputs", "Engineering outputs used as sustainability inputs", "Sustainability metric / indicator", "Engineering performance measured", "Performance effect", "Sustainability transformation", "Baseline / benchmark / comparison / decision rule", "Environmental outcomes", "Economic outcomes", "Social outcomes"],
+    "interpretation_prefixes": ["Author evidence:", "Analyst interpretation:"]
+  },
+  "compact_sheet": {
+    "name": "New",
+    "required_columns": ["Paper", "Simple story / intervention", "Engineering performance measured", "Performance effect", "Engineering acceptability benchmark", "Engineering output used in sustainability", "Sustainability method / tool", "Inputs / variables", "Transformation", "Sustainability outcomes", "Baseline / comparator", "Trade-off", "Decision", "Decision basis", "Decision type"]
+  },
+  "decision_types": ["COMPARATIVE_SELECTION", "INDEX_BASED_SELECTION", "ENGINEERING_OPTIMIZATION_PLUS_SEPARATE_SUSTAINABILITY_COMPARISON", "FORMAL_SUSTAINABILITY_OPTIMIZATION", "WEIGHTED_MULTI_PERFORMANCE_RANKING", "FORMAL_MCDM"],
+  "critical_invariants": {
+    "engineering_input_requires_consumed_by": true,
+    "transformation_requires_source_operator_output": true,
+    "baseline_not_equal_acceptability_gate_by_default": true,
+    "gate_not_equal_objective": true,
+    "no_silent_author_conflict_repair": true,
+    "no_new_material_claim_in_compact_layer": true,
+    "unsupported_dimension_must_remain_blank_or_not_reported": true,
+    "optimization_scope_must_match_implemented_objective": true,
+    "authentic_figure_must_originate_from_focal_pdf": true
+  },
+  "quantitative_fact_signature": ["object", "alternative", "time_or_age", "condition", "value", "unit", "comparator"],
+  "audit_gates": ["A0_WORKBOOK_STRUCTURE", "A1_SOURCE_IDENTITY", "A2_FOCALITY", "A3_ROLE_CORRECTNESS", "A4_ENGINEERING_ACCEPTABILITY", "A5_ENGINEERING_TO_SUSTAINABILITY_DEPENDENCY", "A6_TRANSFORMATION_COMPLETENESS", "A7_EQUATION_FIDELITY", "A8_QUANTITATIVE_FIDELITY", "A9_CONFLICT_PRESERVATION", "A10_BASELINE_BENCHMARK_OBJECTIVE_SEPARATION", "A11_TRADEOFF_VALIDITY", "A12_DECISION_TRACEABILITY", "A13_DECISION_TYPE_CORRECTNESS", "A14_ANALYST_INTERPRETATION_CONTROL", "A15_CROSS_SHEET_CONSERVATION", "A16_UNSUPPORTED_DIMENSION_CONTROL", "A17_VISUAL_PROVENANCE", "A18_INDEPENDENT_RELEASE_AUDIT"],
+  "release_rule": {
+    "critical_failure_count_required": 0,
+    "allowed_non_fail_conflict_status": "PASS_WITH_PRESERVED_AUTHOR_CONFLICT",
+    "numeric_score_can_override_failure": false
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "NUS-E2D Regression Cases",
+  "version": "1.0.0",
+  "cases": [
+    {"paper_id":"NUS-15","must_pass":["ASTM C618-22a SAI >=75% is engineering acceptability gate","28-day compressive strength is sustainability-consumed engineering output","absolute EE/GWP minimum is distinguished from integrated preferred alternative"],"must_not":["35% FNS selected solely from absolute environmental minimum","SAI pass treated as proof of optimality"]},
+    {"paper_id":"NUS-172","must_pass":["31.5 MPa M25 target preserved","100 +/- 20 mm slump target preserved","printed Eq.3 versus reported Si mismatch preserved","S20 recommendation preserved"],"must_not":["Eq.3 silently repaired to fit results","early-age and long-term strength optima collapsed"]},
+    {"paper_id":"NUS-18","must_pass":["DOE medium-office building is baseline not gate","EnergyPlus output is engineering input to emergy transformation","Taguchi/ANOVA/metamodel is formal design optimization"],"must_not":["invented engineering pass/fail threshold","EnergyPlus alone classified as sustainability method"]},
+    {"paper_id":"NUS-187","must_pass":["engineering/fire compliance precedes Eq.22 weighting","direct and indirect engineering-to-whole-life pathways preserved","decision is weighted multi-performance ranking after engineering gate"],"must_not":["weighted score treated as replacement for compliance"]},
+    {"paper_id":"NUS-48","must_pass":["RSM is mechanical multi-response optimization","Eco-Strength Efficiency is performance-normalized carbon","32.88 versus 39.42 MPa author conflict preserved"],"must_not":["RSM classified as joint sustainability optimization","one conflicting strength value silently chosen"]},
+    {"paper_id":"NUS-59","must_pass":["service-life model retained in engineering-to-sustainability dependency","AHP weights Technical 66%, Economic 21%, Environmental 13% preserved","final procedure is formal MCDM"],"must_not":["final ranking inferred from one criterion","environmental, strength and durability optima collapsed"]}
+  ]
+}
