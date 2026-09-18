@@ -221,3 +221,38 @@ Allowed non-failure state:
 
 Blocking state:
 - any NUS-E2D critical failure => synthesis artifact is not release-authoritative.
+
+
+## T23 — Simple Sheet Information Architecture Audit
+
+This gate applies to compact NUS synthesis sheets intended for rapid human retrieval and cross-paper comparison.
+
+Authority:
+- \`NUS_SIMPLE_SHEET_DESIGN_STANDARD_V1.md\`
+- \`NUS_SIMPLE_SHEET_LAYOUT_SCHEMA_V1.json\`
+
+Require:
+- one paper per body row;
+- one governed scientific role per column;
+- evidence-to-decision left-to-right causal order;
+- governed width classes based on semantic load, not longest-cell autofit;
+- header/body row heights within governed limits;
+- body text wrapped, left-aligned, and top-aligned;
+- no merged cells in the body data region;
+- no cell exceeds density limits without adjudicated justification;
+- repeated material information is minimized across adjacent cells;
+- blank / NOT_REPORTED / no-explicit-gate states remain scientifically distinguishable;
+- units, signs, ages, conditions, and comparators remain readable;
+- the simple sheet does not absorb equations, long provenance text, or conflict detail that belongs in the deep evidence layer;
+- the twelve-question retrieval test passes for each paper;
+- vertical same-role comparison is possible without reinterpretation of writing conventions;
+- independent visual QA passes.
+
+Release condition:
+\[
+\text{NUS-E2D-AUDIT PASS}
+\land
+\text{NUS-SIMPLE-SHEET LAYOUT PASS}
+\]
+
+A scientifically correct but poorly organized sheet is not release-authoritative.
