@@ -1,0 +1,70 @@
+{
+  "name": "NUS High-Rigor Simple Sheet Layout Schema",
+  "id": "NUS-SIMPLE-SHEET",
+  "version": "1.0.0",
+  "reference_workbook_sha256": "ea283312452fdb83ceeb379e1d9a47f39b7238e61f38f2e742f43c6a2144ab07",
+  "sheet": "New",
+  "orientation": "ONE_PAPER_PER_ROW_ONE_ROLE_PER_COLUMN",
+  "columns": [
+    {"col":"A","role":"Paper","width_px":235,"width_class":"W1","preferred_chars":[50,120],"soft_max_chars":160},
+    {"col":"B","role":"Simple story / intervention","width_px":280,"width_class":"W3","preferred_chars":[250,500],"soft_max_chars":650},
+    {"col":"C","role":"Engineering performance measured","width_px":240,"width_class":"W2","preferred_chars":[60,160],"soft_max_chars":220},
+    {"col":"D","role":"Performance effect","width_px":250,"width_class":"W2","preferred_chars":[90,190],"soft_max_chars":260},
+    {"col":"E","role":"Engineering acceptability benchmark","width_px":250,"width_class":"W2","preferred_chars":[70,180],"soft_max_chars":240},
+    {"col":"F","role":"Engineering output used in sustainability","width_px":230,"width_class":"W2","preferred_chars":[50,160],"soft_max_chars":220},
+    {"col":"G","role":"Sustainability method / tool","width_px":245,"width_class":"W2","preferred_chars":[60,160],"soft_max_chars":220},
+    {"col":"H","role":"Inputs / variables","width_px":270,"width_class":"W3","preferred_chars":[100,220],"soft_max_chars":300},
+    {"col":"I","role":"Transformation","width_px":285,"width_class":"W3","preferred_chars":[100,230],"soft_max_chars":300},
+    {"col":"J","role":"Sustainability outcomes","width_px":260,"width_class":"W2","preferred_chars":[100,220],"soft_max_chars":300},
+    {"col":"K","role":"Baseline / comparator","width_px":200,"width_class":"W1","preferred_chars":[20,80],"soft_max_chars":120},
+    {"col":"L","role":"Trade-off","width_px":255,"width_class":"W2","preferred_chars":[100,220],"soft_max_chars":300},
+    {"col":"M","role":"Decision","width_px":240,"width_class":"W2","preferred_chars":[40,160],"soft_max_chars":220},
+    {"col":"N","role":"Decision basis","width_px":250,"width_class":"W2","preferred_chars":[80,190],"soft_max_chars":260},
+    {"col":"O","role":"Decision type","width_px":230,"width_class":"W1","preferred_chars":[50,150],"soft_max_chars":200}
+  ],
+  "row_geometry": {
+    "header_height_px": [34,42],
+    "ordinary_body_height_px": [190,230],
+    "high_density_body_height_px": [230,280],
+    "warn_above_px": 300,
+    "fail_above_px": 360
+  },
+  "format": {
+    "wrap_text": true,
+    "header_horizontal_alignment": "center",
+    "body_horizontal_alignment": "left",
+    "body_vertical_alignment": "top",
+    "merged_body_cells_allowed": false,
+    "full_content_autofit_allowed": false,
+    "body_background_default": "white",
+    "freeze_header_recommended": true,
+    "freeze_identity_column_recommended": true
+  },
+  "text_patterns": {
+    "inventory": "SEMICOLON_LIST",
+    "mechanism": "ARROW_CHAIN_ONLY_IF_REAL_DEPENDENCY",
+    "causal_prose": "2_TO_4_COMPACT_SENTENCES"
+  },
+  "layout_gates": [
+    "L0_SCHEMA_INTEGRITY",
+    "L1_CAUSAL_ORDER",
+    "L2_WIDTH_DISCIPLINE",
+    "L3_HEIGHT_DISCIPLINE",
+    "L4_WRAP_ALIGNMENT",
+    "L5_DENSITY",
+    "L6_NON_DUPLICATION",
+    "L7_ROLE_ATOMICITY",
+    "L8_BLANK_STATE_INTEGRITY",
+    "L9_NOTATION",
+    "L10_NAVIGATION",
+    "L11_VISUAL_RESTRAINT",
+    "L12_RETRIEVAL_TEST",
+    "L13_VERTICAL_COMPARISON_TEST",
+    "L14_DEEP_SIMPLE_BOUNDARY",
+    "L15_INDEPENDENT_VISUAL_QA"
+  ],
+  "release_dependency": [
+    "NUS-E2D-AUDIT_PASS",
+    "NUS-SIMPLE-SHEET_LAYOUT_PASS"
+  ]
+}
