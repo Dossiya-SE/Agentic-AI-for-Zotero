@@ -1,6 +1,6 @@
 # Agentic AI for Zotero Skill Package
 
-This package converts the complete Frozen-37 Zotero engineering process into a reusable skill for future Zotero automation projects.
+This package converts the complete Frozen-37 Zotero engineering process into a reusable skill for future Zotero automation projects.\n\n<p align="center"><img src="assets/zotero-governed-mutation.svg" width="100%" alt="Fail-closed evidence-to-Zotero mutation architecture" /></p>
 
 ## Files
 
